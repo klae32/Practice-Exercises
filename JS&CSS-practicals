@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS </title>
+	<style>
+	div#box1{
+		background: gray;
+		width: 200px;
+		height: 100px;
+	}
+	div#box2{
+		background: gray;
+		width: 200px;
+		height: 100px;
+
+	}
+	div#box3{
+		background: gray;
+		width: 200px;
+		height: 100px;
+		overflow: hidden;
+
+	}
+	div#box4{
+		background: gray;
+		width: 200px;
+		height: 100px;
+		clear: both;
+		margin: 10px 10px;
+		position: absolute;
+		left: -400px;
+
+	}
+	#container1, #container2, #container3{
+		float: left;
+		margin: 10px 10px;
+	}
+	#container4{
+		clear: both;
+	}
+
+	</style>
+	<script>
+function changeBG(el, clr){
+	var elem = document.getElementById(el);
+	elem.style.transition = "background 1.0s linear 0s";
+	elem.style.background = clr;
+
+
+}
+
+function fadeOut(el){
+var elem = document.getElementById(el);
+	elem.style.transition = "opacity 1.0s linear 0s";
+	elem.style.opacity = 0;
+}
+function fadeIn(el){
+var elem = document.getElementById(el);
+	elem.style.transition = "opacity 1.0s linear 0s";
+	elem.style.opacity = 1;
+}
+function slideOpen(el){
+var elem = document.getElementById(el);
+	elem.style.transition = "height 0.5s linear 0s";
+	elem.style.height = '100px';
+}
+function slideClose(el){
+var elem = document.getElementById(el);
+	elem.style.transition = "height 0.5s linear 0s";
+	elem.style.height = 0;
+}
+function slideIn(el){
+var elem = document.getElementById(el);
+	elem.style.transition = "left 0.5s linear 0s";
+	elem.style.left = '0px';
+}
+function slideOut(el){
+var elem = document.getElementById(el);
+	elem.style.transition = "left 0.5s linear 0s";
+	elem.style.left = '-400px';
+}
+
+
+	</script>
+</head>
+<body>
+<div id="container1">
+	<button onclick="changeBG('box1', '#F0F');">Magenta</button>
+	<button onclick="changeBG('box1', '#0C0');">Green</button>
+	<button onclick="changeBG('box1', 'gray');">Original</button>
+	<div id="box1">
+		Content in Box 1...
+	</div></div>
+
+<div id='container2'>	
+	<button onclick="fadeOut('box2');">Fade Out</button>
+	<button onclick="fadeIn('box2');">Fade In</button>
+	<div id="box2">
+		This is the content of Box 2...
+	</div>
+</div>
+<div id="container3">
+	<button onclick="slideClose('box3')">Slide Close</button>
+	<button onclick="slideOpen('box3')">Slide Open</button>
+	<div id="box3">
+		Box 3 Animation...
+	</div>
+</div>
+
+<div id="container4">
+	<button onclick="slideIn('box4')">Slide In</button>
+	<button onclick="slideOut('box4')">Slide Out</button>
+	<div id="box4">
+	Content in Box 4...
+		
+	</div>
+	</div>	
+</body>
+</html>
