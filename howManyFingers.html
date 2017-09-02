@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>How Many Fingers am I Holding Up?</title>
+</head>
+<style>
+	body{
+		background: #333;
+		color: #fff;
+	}
+	#guess{
+		width: 125px;
+	}
+	h1{
+		margin-top: 13%;
+		text-align: center;
+		opacity: 0;
+		transition: opacity 2s linear;
+	}
+	.content{
+		width: 100%;
+	}
+	input, button{
+	position: relative;
+	left: 35%;
+	}
+
+	input{
+		opacity: 0;
+		transition: opacity 2s linear;
+	}
+	input.load{
+		opacity: 1;
+	}
+	button{
+		opacity: 0;
+		transition: opacity 2s linear;
+	}
+.hidden{
+	display: none;
+	transform: .5s linear forward;
+}
+h1.load{
+	opacity: 1;
+}
+button.load{
+	opacity: 1;
+}
+
+</style>
+<body>
+	<h1 class ='' id='heading'>How Many Fingers am I Holding Up?</h1>
+	<div id ='content' class='content'>
+		<input class = '' id='guess' type="text" min='1' max='5' >
+		<button class='' id='button'>Guess!</button>
+		<button class=''id='reset'>Reset Number</button></div>
+	<script>
+	var randomNumber = Math.floor(Math.random()*6);
+	if(randomNumber===0){
+		randomNumber+=1
+	} 
+	var button = document.getElementById('button');
+	var guess= document.getElementById('guess');
+	var reset= document.getElementById('reset');
+	button.addEventListener("click", function(){
+		var guessed = Number(guess.value);
+		console.log(guessed);
+		if(guessed === randomNumber){
+			alert('Correct!!! You got it!!!')
+		} else if(guessed === 0 || guessed > 5)
+		{ alert('Error: Please Enter a number between 1 and 5.')}
+			else if(isNaN(guessed) === true){
+				alert('Error: Please Enter a number between 1 and 5.')
+			}
+		 else{alert('Nope, Give it another Shot')}
+	});
+
+	reset.addEventListener('click', function(){
+		randomNumber = Math.floor(Math.random()*6);
+
+	});
+	setTimeout(doSomething, 1000);
+function doSomething(){
+	var h1 = document.getElementById('heading');
+	var content= document.getElementById('content');
+	h1.classList.toggle('load');
+	guess.classList.toggle('load');
+	button.classList.toggle('load');
+	reset.classList.toggle('load');
+
+}
+
+	</script>
+
+</body>
+</html>

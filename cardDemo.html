@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3D Card Demo</title>
+</head>
+
+<style>
+	h1{
+		margin: 0;
+	}
+	p{
+		padding: 5px;
+	}
+	.container{
+		width: 100%;
+	}
+	.card-container{
+		perspective: 700;
+		width: 30%;
+		float: left;
+	}
+	.card{
+
+		position: relative;
+		color: #fff;
+		text-align: center;
+		line-height: 200px;
+		margin: 55px;
+		width: 200px;
+		height: 200px;
+		transition: all 0.6s ease;
+		transform-style: preserve-3d;
+			}
+
+	.front, .back{
+		background: #5677fc;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 200px;
+		height: 200px;
+		backface-visibility: hidden;
+	}
+	.back{
+		background: red !important;
+		transform: rotateY(180deg);
+		font-size: .9em;
+		line-height: 30px !important;
+
+	}
+	.card:hover {
+		transform: rotateY(180deg);
+		}
+	
+
+</style>
+<body>
+	<div class='container'>
+		<div class="card-container">
+			<div class="card">
+			<div class="front"><h1>HTML</h1></div>	
+			<div class="back"><p>HTML (HyperText Markup Language) is the most basic building block of the Web that describes and defines the content of a webpage.</p></div>
+			</div>
+		</div>
+		<div class="card-container">
+			<div class="card">
+			<div class="front"><h1>CSS</h1></div>	
+			<div class="back"><p>Cascading Style Sheets (CSS) is a stylesheet language used to describe the presentation of a document written in HTML or XML (including XML dialects such as SVG or XHTML).</p></div>
+			</div>
+		</div>
+		<div class="card-container">
+			<div class="card">
+			<div class="front"><h1>JavaScript</h1></div>	
+			<div class="back"><p>JavaScript (JS) is a lightweight interpreted or JIT-compiled programming language with first-class functions.</p></div>
+			</div>
+	</div>
+</body>
+</html>

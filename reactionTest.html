@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Reaction Tester</title>
+</head>
+<style>
+	#shape{
+		height: 200px;
+		width: 200px;
+		background: red;
+		display: none;
+	}
+</style>
+<body>
+	<h1>Test Your Reactions!</h1>
+	<p>Click on the boxes and circles as quickly as you can!</p>
+
+	<p>Time Elapsed: <span id='timer'></span></p>
+
+	<div id="shape"></div>
+	<script>
+	var shape = document.getElementById('shape');
+	function newColor(){
+	var red = Math.floor(Math.random()*256);
+	var green = Math.floor(Math.random()*256);
+	var blue = Math.floor(Math.random()*256);
+	var color = 'rgb('+red+', '+ green+', '+ blue+')';
+
+return color}
+
+	var start = new Date().getTime();
+	shape.style.backgroundColor = newColor();
+
+	function makeShapeAppear(){
+		shape.style.display = 'block';
+		start = new Date().getTime();
+	}
+	setTimeout(makeShapeAppear, 1000);
+	shape.onclick = function(){
+
+		var end = new Date().getTime();
+		var time = (end - start)/1000;
+		this.style.backgroundColor = newColor();
+		document.getElementById('timer').textContent = time + 's';
+		this.style.display = 'none'
+
+		setTimeout(makeShapeAppear, 1000);
+
+	}
+
+
+	</script>
+	
+</body>
+</html>
